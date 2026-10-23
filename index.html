@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Le Tigre Blanc - La Vérité</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style/style.css') }}"
+    >
+</head>
+
+<body>
+
+    {% include 'template/header.html' %}
+
+    <main>
+
+        <section class="tiger-zone">
+
+            <div class="warning">
+                ⚠ DOSSIER HAUTEMENT OBJECTIF ⚠
+            </div>
+
+            <h2>LE TIGRE DU BENGALE BLANC</h2>
+
+            <p class="subtitle">
+                GROS CHAT. GROSSES PATTES. AUCUN DÉBAT.
+            </p>
+
+
+            <!-- DESCRIPTION -->
+
+            <article class="description">
+
+                <h3>// DESCRIPTION</h3>
+
+                <p>
+                    Le tigre blanc du Bengale est l’un des félins les plus
+                    impressionnants au monde.
+
+                    Sa particularité la plus évidente est son magnifique
+                    pelage blanc rayé de noir.
+
+                    Cette coloration provient du leucisme, une particularité
+                    génétique, et non de l’albinisme.
+
+                    Ses yeux sont généralement bleus et sa truffe est rose.
+
+                    Il appartient à la même sous-espèce que le tigre du
+                    Bengale classique, Panthera tigris tigris.
+
+                    Comme les autres tigres, c’est un animal carnivore.
+
+                    Il possède un corps particulièrement puissant et adapté
+                    à la chasse.
+
+                    Le tigre du Bengale est également un animal principalement
+                    solitaire et territorial.
+
+                    Dans la nature, les tigres du Bengale peuvent vivre dans
+                    des environnements variés.
+
+                    On les retrouve notamment dans les forêts, les savanes
+                    et les zones marécageuses.
+
+                    Contrairement à une idée reçue, le tigre blanc ne constitue
+                    pas une sous-espèce différente.
+
+                    Il s’agit simplement d'une variation de coloration
+                    particulièrement rare.
+
+                    Les rayures restent présentes malgré la couleur blanche
+                    de son pelage.
+
+                    Comme chez les autres tigres, leur disposition est propre
+                    à chaque individu.
+
+                    Avec son allure majestueuse et ses couleurs extraordinaires,
+                    il est difficile de rester indifférent devant ce félin.
+                </p>
+
+            </article>
+
+
+            <!-- GALERIE -->
+
+            <article class="gallery">
+
+                <h3>// PREUVES PHOTOGRAPHIQUES</h3>
+
+                <p class="gallery-warning">
+                    ATTENTION : quantité dangereuse de KAWAII ci-dessous.
+                </p>
+
+                <div class="tiger-grid">
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT1.jpg') }}"
+                        alt="Tigre blanc trop cute"
+                    >
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT2.jpg') }}"
+                        alt="Tigre blanc kawaii"
+                    >
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT3.jpg') }}"
+                        alt="Tigre blanc uwu"
+                    >
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT4.jpg') }}"
+                        alt="Tigre blanc miaou"
+                    >
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT5.jpg') }}"
+                        alt="Tigre blanc growr"
+                    >
+
+                    <img
+                        src="{{ url_for('static', filename='image/WBT6.jpg') }}"
+                        alt="Tigre blanc mioumi"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- LA VERITE -->
+
+            <article class="truth">
+
+                <h3>// POURQUOI J'AI RAISON ?</h3>
+
+                <p>
+                    Soyons parfaitement objectifs pendant environ trois
+                    secondes : le tigre blanc est évidemment le meilleur
+                    animal du monde.
+                </p>
+
+                <p>
+                    Il possède déjà toute la puissance et l’élégance d’un
+                    tigre, mais son pelage blanc, ses rayures noires et ses
+                    yeux bleus lui donnent une apparence absolument unique.
+
+                    Il peut avoir l’air majestueux, mystérieux et terriblement
+                    impressionnant tout en ressemblant parfois à un gigantesque
+                    chat qui aurait simplement besoin d’une sieste.
+                </p>
+
+                <p>
+                    Sa rareté ajoute encore à sa fascination.
+
+                    Et surtout, soyons honnêtes : si quelqu’un te demande de
+                    réaliser un exercice HTML sur un animal, une page remplie
+                    de magnifiques tigres blancs aura quand même beaucoup plus
+                    de classe qu’une page consacrée au pigeon du parking
+                    d’Auchan.
+                </p>
+
+                <p class="final-answer">
+                    GROS CHAT + RAYURES + YEUX BLEUS + CHARISME = VICTOIRE.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            <small>NE ME CONTACTE SURTOUT PAS.</small>
+        </p>
+
+        <a href="{{ url_for('formulaire') }}">
+            Très mauvaise idée →
+        </a>
+
+    </footer>
+
+</body>
+
+</html>

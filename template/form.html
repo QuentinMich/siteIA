@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NE ME CONTACTE PAS</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    {% include 'template/header.html' %}
+
+
+    <main>
+
+        <section class="contact-zone">
+
+            <div class="warning">
+                ⚠ ZONE DE MAUVAISE DÉCISION ⚠
+            </div>
+
+            <h2>NE ME CONTACTE PAS</h2>
+
+            <p class="subtitle">
+                Ce formulaire n'envoie absolument rien.
+                C'est probablement mieux ainsi.
+            </p>
+
+
+            <form>
+
+                <div>
+
+                    <label for="nom">
+                        01 // TON NOM
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        placeholder="Jean-Michel Tigre"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="email">
+                        02 // TON EMAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="tigre@miaou.fr"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="sujet">
+                        03 // POURQUOI ?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="sujet"
+                        name="sujet"
+                        placeholder="J'ai pris une mauvaise décision..."
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="message">
+                        04 // DÉPOSE TON MESSAGE ICI
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="ROAAAAAAAR..."
+                    ></textarea>
+
+                </div>
+
+
+                <button id="contact" type="button">
+                    [ NE PAS ENVOYER ]
+                </button>
+
+            </form>
+            <p id="destruction-message"></p>
+        </section>
+
+    </main>
+
+
+    <script>
+    const contact = document.getElementById("contact");
+    const son = new Audio(
+        "{{ url_for('static', filename='sound/rugissement.mp3') }}"
+    );
+
+    const formulaire = document.querySelector("form");
+    const champs = formulaire.querySelectorAll("form div");
+    const message = document.getElementById("destruction-message");
+
+
+    contact.addEventListener("click", function() {
+
+        /* ROAAAAAR */
+        son.currentTime = 0;
+        son.play();
+
+
+        /* LE FORMULAIRE SENT QUE QUELQUE CHOSE VA MAL */
+        formulaire.animate(
+            [
+                { transform: "translateX(0)" },
+                { transform: "translateX(-15px) rotate(-1deg)" },
+                { transform: "translateX(15px) rotate(1deg)" },
+                { transform: "translateX(-10px)" },
+                { transform: "translateX(10px)" },
+                { transform: "translateX(0)" }
+            ],
+            {
+                duration: 450
+            }
+        );
+
+
+        /* DESTRUCTION CHAMP PAR CHAMP */
+        champs.forEach(function(champ, index) {
+
+            setTimeout(function() {
+
+                champ.animate(
+                    [
+                        {
+                            transform: "translate(0, 0) rotate(0)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform: "translate(-10px, 5px) rotate(-3deg)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                "translate(" +
+                                (index % 2 === 0 ? "-120vw" : "120vw") +
+                                ", 80px) rotate(" +
+                                (index % 2 === 0 ? "-35deg" : "35deg") +
+                                ")",
+
+                            opacity: 0
+                        }
+                    ],
+
+                    {
+                        duration: 800,
+                        easing: "cubic-bezier(.55,.06,.68,.19)",
+                        fill: "forwards"
+                    }
+                );
+
+            }, index * 180);
+
+        });
+
+
+        /* LE BOUTON S'AUTO-DETRUIT EN DERNIER */
+        setTimeout(function() {
+
+            contact.animate(
+                [
+                    {
+                        transform: "scale(1) rotate(-2deg)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform: "scale(1.4) rotate(8deg)",
+                        background: "#d6b52c"
+                    },
+
+                    {
+                        transform: "scale(0) rotate(720deg)",
+                        opacity: 0
+                    }
+                ],
+
+                {
+                    duration: 900,
+                    fill: "forwards"
+                }
+            );
+
+        }, champs.length * 180);
+
+
+        /* CONCLUSION ABSOLUMENT PROFESSIONNELLE */
+        setTimeout(function() {
+
+            message.textContent =
+                "MESSAGE DÉTRUIT AVEC SUCCÈS.";
+
+            message.classList.add("message-detruit");
+
+        }, champs.length * 180 + 850);
+
+    });
+</script>
+
+</body>
+
+</html>
